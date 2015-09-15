@@ -1,0 +1,12 @@
+<?php
+	include_once('sections/menu/aperitivos.html');
+	include_once('sections/menu/sopasyensaladas.html');
+	include_once('sections/menu/paninisycalzones.html');
+	include_once('sections/menu/pastas.php');
+	include_once('sections/menu/pizzas.html');
+	include_once('sections/menu/carnepolloypescado.html');
+	include_once('sections/menu/postres.html');
+	include_once('sections/menu/bebidas.php');
+	include_once('sections/menu/carnepolloypescado.html');
+	include_once('sections/menu/pequenosdelacasa.php');
+?>

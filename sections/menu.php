@@ -1,0 +1,14 @@
+<?php
+	include_once('sections/menu/aperitivos.html');
+	include_once('sections/menu/sopasyensaladas.html');
+	include_once('sections/menu/paninisycalzones.html');
+	include_once('sections/menu/pastas_clasicas.html');
+	include_once('sections/menu/pastas_chef.html');
+	include_once('sections/menu/pizzas.html');
+	include_once('sections/menu/carnepolloypescado.html');
+	include_once('sections/menu/postres.html');
+	include_once('sections/menu/cocteles.html');
+	include_once('sections/menu/bebidasnoalcoholicas.html');
+	include_once('sections/menu/vinos.html');
+	include_once('sections/menu/pequenosdelacasa.php');
+?>

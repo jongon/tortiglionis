@@ -1,0 +1,11 @@
+<?php
+	include_once('sections/recetas/aperitivos.html');
+	include_once('sections/recetas/platosprincipales.html');
+	include_once('sections/recetas/pastas.html');
+	include_once('sections/recetas/pizzas.html');
+	include_once('sections/recetas/salsas.html');
+	include_once('sections/recetas/guarniciones.html');
+	include_once('sections/recetas/sopas.html');
+	include_once('sections/recetas/bebidas.html');
+	include_once('sections/recetas/postres.html');
+?>

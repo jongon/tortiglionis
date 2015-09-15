@@ -1,0 +1,346 @@
+/*Theme Name: Tortiglionis
+Theme URI: www.tortiglionis.com.ve
+Author: Jonathan Gonz�lez
+Version: 1.0
+Description: Tortiglionis css
+*/
+
+@import url('normalize.css');
+
+
+
+@font-face
+{
+	font-family: 'TrajanPro';
+	src: url('fonts/TrajanPro-Bold.otf'),
+	     url('fonts/Frutiger/frutiger-light-webfont.eot');
+	font-weight: normal;
+}
+
+
+@font-face
+{
+	font-family: 'TrajanPro';
+	src: url('fonts/TrajanPro-Regular.eot');
+}
+
+    
+.banner { 
+	position: relative; 
+	overflow: hidden;
+	height: 500px;
+	width: 1200px;
+	margin:auto;
+}
+
+	.banner .dots {
+		position: absolute;
+		text-align: center;
+		left: 0;
+		right: 0;
+		bottom: 20px;
+	}
+		.banner .dots li {
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			margin: 0 4px;
+			text-indent: -999em;
+			
+			border: 2px solid #fff;
+			border-radius: 10px;
+			
+			cursor: pointer;
+			opacity: .;
+			
+			-webkit-transition: background .5s, opacity .5s;
+			-moz-transition: background .5s, opacity .5s;
+			transition: background .5s, opacity .5s;
+		}
+			.banner .dots li.active {
+				background: #fff;
+				opacity: 1;
+			}
+
+	.banner ul{
+		margin: 0;
+		padding:0;
+	}
+
+	.banner li { 
+		list-style: none; 
+		overflow: hidden;
+		height: 500px;
+	}
+
+	.banner ul li { 
+		float: left; 
+		overflow: hidden;
+	}
+
+body{
+	margin:0;
+	font-family: Palatino Linotype;
+	color: #110E00;
+	font-style: italic;
+	font-size: 16px;
+}
+
+#container{
+	background: white;
+	min-height: 400px;
+}
+
+#container-wrapper{
+	width:1200px;
+	margin:auto;
+}
+
+#creditos{
+	text-align: center;
+	color: white;
+}
+
+#elements img{
+	margin-left: 50px;
+	width:208px;
+	height: 125px;
+}
+
+#elements figcaption{
+	width: auto;
+}
+
+#elements table{
+	margin-left: 200px;
+	border: solid;
+	font-size: 0.9em;
+}
+
+#elements td{
+	border: solid;
+}
+
+figure img {
+	box-shadow: 10px 10px 5px #888888;
+	display: inline-block;
+	margin-left: 300px;
+}
+
+figcaption{
+	font-size: 1.1em;
+	color:#739281;
+	width:500px;
+	display: inline-block;
+}
+
+figcaption ul{
+	list-style: none;
+}
+
+footer{
+	height:150px;
+}
+
+#galleria{
+	margin:auto;
+}
+
+header{
+	margin:auto;
+	padding-top: 10px;
+	width: 1200px;
+}
+
+h1{
+	font-family: 'TrajanPro';
+	color:#009248;
+	font-size: 2em;
+	margin-left: 10px;
+	padding-top: 10px;
+}
+
+h2{
+	font-family: 'TrajanPro';
+	color:#009248;
+	font-size: 1.5em;
+	margin-left:10px; 
+	padding-top: 10px;
+}
+
+h3{
+	font-family: 'TrajanPro';
+	color:#009248;
+	font-size: 1.5em;
+	padding-top: 10px;
+}
+
+h6{
+	font-family: 'TrajanPro';
+	color:#009248;
+	font-size: 1em;
+	margin-left:10px; 
+}
+
+html { 
+  background: url('images/background.jpg');
+}
+
+#inicio{
+	width: 700px;
+}
+
+#inicio p{
+	color: #931919;
+}
+
+#inicio h1{
+	
+	color:#009248;
+	font-size: 2em;
+	font-family: "TrajanPro";
+	
+}
+
+input{
+	border-radius: 10px;
+}
+
+.logo{
+	float: left;
+	padding-right: 20px;
+}
+
+#mapa {
+	margin: 0px;
+	padding: 0px;
+	height: 800px;			
+	border: 1px solid black;
+}
+
+#imagenMapa{
+	width:200px;
+	height: 120px;
+}
+
+nav a{
+	text-decoration: none;
+	font-size: .9em;
+	font-family: 'TrajanPro';
+	font-weight: bold;
+	color: #f3e6c5;
+}
+
+	nav ul{
+		list-style: none;
+	}
+
+		nav ul li{
+			padding-top: 30px;
+			padding-left: 32px;
+			display:inline-block;
+		}
+
+		nav>ul>li:hover>ul, nav>ul>li>ul>li:hover>ul{
+			opacity: 1;
+			visibility: visible;	
+		}
+
+		nav li a:hover{
+			color: #a78057;
+		}
+
+		nav>ul>li>ul, nav>ul>li>ul>li>ul {
+			padding: 0px;
+			padding-bottom: 30px;
+			padding-right: 5px;
+			position: absolute;
+	        top: 100%;
+			width: 160px;
+			background: #FFF;
+			border: solid 1px #2E4B88;
+			border-top: none;
+			line-height: 20px;
+			z-index: 1000;
+			opacity: 0;
+			display: block;
+			visibility:hidden;
+			-webkit-transition: opacity 0.3s linear;
+			transition: opacity 0.3s linear;
+		}
+
+		nav ul li ul li{
+			float:none;
+			display:block;
+		}
+
+		nav ul li ul li a:link, nav ul li ul li a:visited{
+			color:#444;
+			font-size:11px;
+			font-weight:bold;
+			text-decoration:none;
+			padding:0 10px;
+			clear:both;
+			border-bottom:solid 1px #DEDEDE;
+		}
+
+		nav ul li ul li a:hover
+		{
+			color:#3B5998;
+			background:#EBEFF7;
+		}
+
+p{
+	font-size: 1.04em;
+}
+
+.redSocial img{
+	width:100px;
+	height: 100px;
+}
+
+#question{
+	font-weight: bold;
+}
+
+#steps{
+	padding-left: 40px;
+	width: 500px;
+}
+
+#tabla
+{
+	font-size: 1em;
+	font-style: bold;
+	border: solid;
+}
+
+table{
+	font-size: 1em;
+	font-style: bold;
+	border: solid;
+}
+
+td{
+	border: solid;
+}
+
+#textField  {
+	border: 1px solid #BFBFBF;
+	background: url(images/glass.png) no-repeat 10px 5px;
+	background-color: white;
+	padding-left: 30px;
+	height: 28px;
+	width: 150px;
+	border-radius: 20px;
+}
+
+#vinos figure, #vinos table
+{
+	color:#739281;
+	display: inline-block;
+}
+
+.search_field{
+	padding-left: 990px;
+}

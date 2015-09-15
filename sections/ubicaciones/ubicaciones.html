@@ -1,0 +1,251 @@
+	<div id="wrapper">
+		<div id="mapa"></div>
+	</div>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript">
+		(function() {
+			window.onload = function(){
+				var venezuela = new google.maps.LatLng(10.491016,-66.902061);
+				var opciones = {
+					zoom : 5,
+					center: venezuela,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				var div = document.getElementById('mapa');
+				var map = new google.maps.Map(div, opciones);
+				var infowindow = new google.maps.InfoWindow({
+					content: ''
+				});
+				
+				var marcadores = [
+					{
+						position:{
+							lat : 10.505213,
+							lng : -66.843210
+						},
+						contenido:"<h2> Tortiglioni’s Ristorante Italiano - Los Palos Grandes</h2>"+ 
+						"<p>4ta. Avenida con 6ta Transversal, Los Palos Grandes, Mcpo. Chacao, 1060, Caracas</p>"+
+						"<p>Gerente General: Francisco García</p>"+
+						"<p>Chef Ejecutivo: Renato Linares</p>"+
+						"<img src='images/chef/francisco.png'/>"+
+						"<p>Reservaciones: 0212-284-4432</p>"+
+						"<p>Fax: 0212-284-4491</p>"+
+						"<p>Pedidos a domicilio: 0212-284-1189</p>"+
+						"<p>Pedidos para llevar: 0212-284-1187</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Jueves: 12:00p.m. a 11:00p.m.</p>"+
+						"<p>Jueves a Sábado: 12:00p.m. a 12:00p.m.</p>"+
+						"<p>Domingo: 12:00p.m. a 11:00p.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/palos1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/palos2.png'/>"+
+						"<p>Servicios:Valet Parking, Pedidos a domicilio, Pedidos para llevar, Parque infantil</p>"
+					},
+					{
+						position:{
+							lat : 10.482458,
+							lng : -66.859435
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano - Las Mercedes</h2>"+
+						"<p>Calle París, entre calles La Trinidad y Nueva York. Municipio Baruta, 1060, Caracas.</p>"+
+						"<p>Gerente General: Juan Gómez Pereda</p>"+
+						"<p>Chef Ejecutivo: Ana Maria Franceschi</p>"+
+						"<img src='images/chef/ana.png'/>"+
+						"<p>Reservaciones: 0212-991-2203</p>"+
+						"<p>Fax: 0212-991-2204</p>"+
+						"<p>Pedidos para llevar: 0212-991-2205</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Jueves: 12:00p.m. a 12:00a.m.</p>"+
+						"<p>Jueves a Sábado: 11:00a.m. a 1:00a.m.</p>"+
+						"<p>Domingo: 12:00p.m. a 12:00a.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/mercedes1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/mercedes2.png'/>"+
+						"<p>Servicio: Valet Parking, Pedidos para llevar, Banquetes / Eventos privados</p>"
+					},
+					{
+						position:{
+							lat : 10.451276,
+							lng : -66.877974
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano - Prados del Este</h2>"+
+						"<p>Av. Principal de Prados del Este. Municipio Baruta, 1060, Caracas.</p>"+
+						"<p>Gerente General: Alejandro Cadavieco</p>"+
+						"<p>Chef Ejecutivo: Tonny Garcés</p>"+
+						"<img src='images/chef/tonny.png'/>"+
+						"<p>Reservaciones: 0212-978-1156</p>"+
+						"<p>Fax: 0212-978-6951</p>"+
+						"<p>Pedidos a domicilio: 0212-978-1932</p>"+
+						"<p>Pedidos para llevar: 0212-978-7452</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Jueves: 12:00p.m. a 11:00p.m.</p>"+
+						"<p>Jueves a Sábado: 12:00p.m. a 12:00a.m.</p>"+
+						"<p>Domingo: 11:00a.m. a 11:00p.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/prados1.png'/>"+
+						"<img id='imagenMapa' rc='images/chef/prados2.png'/>"+
+						"<p>Servicio: Pedidos para llevar, Banquetes / Eventos privados Parque infantil</p>"
+					},
+					{
+						position:{
+							lat : 10.472409,
+							lng : -66.838138
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano - El Cafetal</h2>"+
+						"<p>C.C. Caurimare, Blvd Raúl Leoni con Av.Principal de Caurimare y Av. C, Caurimare, Urb. El Cafetal. Mcpo. Baruta, 1061</p>"+
+						"<p>Gerente General: Ana Julia Moreno</p>"+
+						"<p>Chef Ejecutivo: Mauricio Abaestrini</p>"+
+						"<img src='images/chef/mauricio.png'/>"+
+						"<p>Reservaciones: 0212-986-6085</p>"+
+						"<p>Pedidos a domicilio: 0212-986-7020</p>"+
+						"<p>Pedidos para llevar: 0212-986-1178</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Jueves: 12:00p.m. a 11:00p.m.</p>"+
+						"<p>Jueves a Sábado: 12:00p.m. a 12:00a.m.</p>"+
+						"<p>Domingo: 11:00a.m. a 11:00p.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/cafetal1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/cafetal2.png'/>"+
+						"<p>Servicio: Pedidos a domicilio, Pedidos para llevar, Parque infantil</p>"
+					},
+						{
+						position:{
+							lat : 10.495117,
+							lng : -66.811568
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano - El Marqués</h2>"+
+						"<p>Av. Sánz con Av. Rómulo Gallegos, El Marqués, Municipio Sucre, 1071</p>"+
+						"<p>Gerente General: Francisco Villarreal</p>"+
+						"<p>Chef Ejecutivo: Carlo Spittieri</p>"+
+						"<img src='images/chef/carlo.png'/>"+
+						"<p>Reservaciones: 0212-242-1436</p>"+
+						"<p>Fax: 0212-242-1435</p>"+
+						"<p>Pedidos para llevar: 0212-242-1437</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Viernes: 12:00p.m. a 11:00p.m.</p>"+
+						"<p>Domingo: 12:00p.m. a 10:00p.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/marques1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/marques2.png'/>"+
+						"<p>Servicio: Valet Parking, Pedidos para llevar, Parque infantil</p>"
+					},
+					{
+						position:{
+							lat : 10.214294,
+							lng : -68.010349
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano - El Viñedo (Valencia)</h2>"+
+						"<p>Av. Monseñor Adams, entre Av. Andrés Eloy Blanco y Av. Bolívar Norte, Valencia, 2001</p>"+
+						"<p>Gerente General: Esperanza La Mar</p>"+
+						"<p>Chef Ejecutivo: Victor Maestracci</p>"+
+						"<img src='images/chef/victor.png'/>"+
+						"<p>Reservaciones: 0241- 824-5000</p>"+
+						"<p>Fax: 0241-824-5003</p>"+
+						"<p>Pedidos a domicilio: 0241-824-5001</p>"+
+						"<p>Pedidos para llevar: 0241-824-5002</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Jueves: 12:00p.m. a 12:00a.m.</p>"+
+						"<p>Jueves a Sábado: 11:00a.m. a 1:00a.m.</p>"+
+						"<p>Domingo: 12:00p.m. a 12:00a.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/valencia1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/valencia2.png'/>"+
+						"<p>Servicio: Valet Parking, Pedidos a domicilio, Pedidos para llevar, Banquetes / Eventos privados, Parque infantil</p>"
+					},	
+					{
+						position:{
+							lat : 10.684441,
+							lng : -71.595921
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano – El Milagro (Maracaibo)</h2>"+
+						"<p>Av. El Milagro, N° 57. Maracaibo, 4002</p>"+
+						"<p>Gerente General: Lorenzo Di Giaccomo</p>"+
+						"<p>Chef Ejecutivo: Andrea Di Giacomo</p>"+
+						"<img src='images/chef/lorenzo.png'/>"+
+						"<p>Reservaciones: 0261-791-1114</p>"+
+						"<p>Fax: 0261-791-1129</p>"+
+						"<p>Pedidos a domicilio: 0261-791-1207</p>"+
+						"<p>Pedidos para llevar: 0261-791-1207</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Lunes a Jueves: 12:00p.m. a 12:00a.m.</p>"+
+						"<p>Jueves a Sábado: 11:00a.m. a 1:00a.m.</p>"+
+						"<p>Domingo: 12:00p.m. a 11:00p.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/maracaibo1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/maracaibo2.png'/>"+
+						"<p>Servicio: Valet Parking, Pedidos a domicilio, Pedidos para llevar, Banquetes / Eventos privados, Parque infantil</p>"
+					},
+					{
+						position:{
+							lat : 10.216026,
+							lng : -64.643093
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano – Paseo Colón (Puerto La Cruz)</h2>"+
+						"<p>Prolongación Av. Paseo Colón, Urb. Los Yaques, Puerto La Cruz, 6023.</p>"+
+						"<p>Gerente General: José Rafael Iturrieta</p>"+
+						"<p>Chef Ejecutivo: Vicente Rivas</p>"+
+						"<img src='images/chef/vicente.png'/>"+
+						"<p>Reservaciones: 0281-267-9427</p>"+
+						"<p>Fax: 0281-267-9318</p>"+
+						"<p>Pedidos a domicilio: 0281-267-9381</p>"+
+						"<p>Pedidos para llevar: 0281-267-9306</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Martes a Jueves: 12:00p.m. a 11:00p.m.</p>"+
+						"<p>Jueves a Domingo: 12:00a.m. a 12:00a.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/puerto1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/puerto2.png'/>"+
+						"<p>Servicio: Pedidos a domicilio, Pedidos para llevar, Banquetes / Eventos privados</p>"
+					},
+					{
+						position:{
+							lat : 11.144235,
+							lng : -63.862828
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano – Playa el Agua (Margarita)</h2>"+
+						"<p>Calle La Mira con Boulevard Playa El Agua. Playa El Agua - Antolín del Campo, Isla de Margarita, 6301.</p>"+
+						"<p>Gerente General: Kenneth Jepessen</p>"+
+						"<p>Chef Ejecutivo: Philippe Dubois</p>"+
+						"<img src='images/chef/philie.png'/>"+
+						"<p>Reservaciones: 0295-400-3371</p>"+
+						"<p>Fax: 0281-267-9318</p>"+
+						"<p>Pedidos para llevar: 0295-400-3371</p>"+
+						"<p>e-mail: playa.el.agua@tortiglionis.com.ve</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Martes a Jueves: 12:00p.m. a 1:00a.m.</p>"+
+						"<p>Jueves a Sábado: 12:00p.m. a 5:00a.m.</p>"+
+						"<p>Domingo: 12:00p.m. a 12:00a.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/margarita1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/margarita2.png'/>"+
+						"<p>Servicio: Valet Parking, Pedidos a domicilio, Pedidos para llevar, Banquetes / Eventos privados</p>"
+					},
+					{
+						position:{
+							lat : 10.292224,
+							lng : -67.563606
+						},
+						contenido: "<h2>Tortiglioni’s Ristorante Italiano – Las Delicias (Maracay)</h2>"+
+						"<p>Avenida Las Delicias con Calle El Dique, Las Delicias, Maracay, 2102.</p>"+
+						"<p>Gerente General: Anita Suoyiz</p>"+
+						"<p>Chef Ejecutivo: Arnaldo Blanco</p>"+
+						"<img src='images/chef/arnaldo.png'/>"+
+						"<p>Reservaciones: 0243-242-4580</p>"+
+						"<p>Pedidos a domicilio: 0243-242-4586</p>"+
+						"<p>Pedidos para llevar: 0243-242-4587</p>"+
+						"<p>e-mail: las.delicias@tortiglionis.com.ve</p>"+
+						"<p>Horario de Atención:</p> "+
+						"<p>Domingo a Jueves: 12:00p.m. a 11:00p.m.</p>"+
+						"<p>Jueves a Sábado: 12:00p.m. a 12:00a.m.</p>"+
+						"<img id='imagenMapa' src='images/chef/maracay1.png'/>"+
+						"<img id='imagenMapa' src='images/chef/maracay2.png'/>"+
+						"<p>Servicio: Valet Parking, Pedidos a domicilio, Pedidos para llevar, Banquetes / Eventos privados</p>"
+					},
+				];
+				for (var i = 0, j = marcadores.length; i < j; i++) {
+					var contenido = marcadores[i].contenido;
+					var marker = new google.maps.Marker({
+						position: new google.maps.LatLng(marcadores[i].position.lat, marcadores[i].position.lng),
+						map: map
+					});
+					(function(marker, contenido){						
+						google.maps.event.addListener(marker, 'click', function() {
+							infowindow.setContent(contenido);
+							infowindow.open(map, marker);
+						});
+					})(marker,contenido);
+				}				
+			}
+		})();
+	</script>
